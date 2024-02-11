@@ -1,39 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Table from JavaScript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table from JavaScript</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn {
+            cursor: pointer;
+        }
+
+        .btn-danger:hover {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-success:hover {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+    </style>
 </head>
 <body>
 
-<table id="myTable">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>City</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Action</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="myTableBody">
+        </tbody>
+    </table>
+</div>
 
 <script type="text/javascript">
     var myObject = [
-        {name: "raj", city: "pune"},
-        {name: "xyz", city: "nanded"},
-        {name: "abc", city: "latur"}
+        { name: "raj", city: "pune" },
+        { name: "xyz", city: "nanded" },
+        { name: "abc", city: "latur" }
     ];
 
-    var tableBody = document.querySelector('#myTable tbody');
+    var tableBody = document.getElementById('myTableBody');
 
     for (var i = 0; i < myObject.length; i++) {
         var row = '<tr>' +
             '<td>' + myObject[i].name + '</td>' +
             '<td>' + myObject[i].city + '</td>' +
-            '<td><button type="button" onclick="editRow(' + i + ')">Edit</button></td>' +
-            '<td><button type="button" onclick="deleteRow(' + i + ')">Delete</button></td>' +
+            '<td><button type="button" class="btn btn-primary btn-sm" onclick="editRow(' + i + ')">Edit</button></td>' +
+            '<td><button type="button" class="btn btn-danger btn-sm" onclick="deleteRow(' + i + ')">Delete</button></td>' +
             '</tr>';
 
         tableBody.innerHTML += row;
@@ -62,8 +105,8 @@
             var row = '<tr>' +
                 '<td>' + myObject[i].name + '</td>' +
                 '<td>' + myObject[i].city + '</td>' +
-                '<td><button type="button" onclick="editRow(' + i + ')">Edit</button></td>' +
-                '<td><button type="button" onclick="deleteRow(' + i + ')">Delete</button></td>' +
+                '<td><button type="button" class="btn btn-primary btn-sm" onclick="editRow(' + i + ')">Edit</button></td>' +
+                '<td><button type="button" class="btn btn-danger btn-sm" onclick="deleteRow(' + i + ')">Delete</button></td>' +
                 '</tr>';
 
             tableBody.innerHTML += row;
